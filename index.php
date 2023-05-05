@@ -1,3 +1,13 @@
+<?php
+$pass_length = $_GET['password_length'];
+function generate_password($pass_length)
+{
+    $char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%";
+    $password = '';
+    for ($i = 0; $i < $pass_length; $i++) {
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +23,17 @@
 </head>
 
 <body>
-
+    <div class="container d-flex flex-column align-items-center">
+        <h1 class="text-center">Strong Password Generator</h1>
+        <form action="index.php" method="get" class="my-3">
+            <label for="password-length">Lunghezza password: </label>
+            <input type="text" id="password-length" name="password_length">
+            <button type="submit" class="btn btn-primary">Invio</button>
+        </form>
+    </div>
+    <?php
+    echo $pass_length;
+    ?>
 </body>
 
 </html>
