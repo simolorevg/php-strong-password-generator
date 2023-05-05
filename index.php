@@ -1,11 +1,14 @@
 <?php
-$pass_length = $_GET['password_length'];
-function generate_password($pass_length)
+$pass_length = $_GET['password_length']; //'prendo' il dato inserito dall'utente
+function generate_password($max_char) //funzione che genera la nuova password
 {
-    $char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%";
-    $password = '';
-    for ($i = 0; $i < $pass_length; $i++) {
+    $char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%"; //insieme di caratteri usati
+    $password = ''; //password generata
+    for ($i = 0; $i < $max_char; $i++) { //ciclo for per la generazione della password
+        $index = rand(0, strlen($char) - 1); //indice generato in modo casuale
+        $password .= $char[$index]; //l'indice usato prima mi servita per 'pescare' un carattere da $char e immetterlo in $password
     }
+    return $password; //restituisco $password
 }
 ?>
 <!DOCTYPE html>
@@ -30,10 +33,14 @@ function generate_password($pass_length)
             <input type="text" id="password-length" name="password_length">
             <button type="submit" class="btn btn-primary">Invio</button>
         </form>
+        <?php if (isset($pass_length)) { ?>
+            <?php if (!(empty($pass_length)) && $pass_length === 0) { ?>
+                <p>La password generata è: <?php echo generate_password($pass_length) ?></p>
+            <?php } else { ?>
+                <p>INSERIRE UN DATO NUMERICO PARI O SUPERIORE A UNO</p>
+            <?php } ?>
+        <?php } ?>
     </div>
-    <?php
-    echo $pass_length;
-    ?>
 </body>
 
 </html>
