@@ -1,7 +1,6 @@
 <?php
-$pass_length = $_GET['password_length']; //'prendo' il dato inserito dall'utente
 session_start();
-
+$pass_length = $_GET['password_length']; //'prendo' il dato inserito dall'utente
 include __DIR__ . '/functions.php';
 ?>
 <!DOCTYPE html>
