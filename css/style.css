@@ -6,3 +6,26 @@
 }
 
 /*COMMON*/
+body {
+    background-color: #001632;
+}
+
+h1 {
+    color: #808b99;
+}
+
+h2 {
+    color: white;
+}
+
+/*LAYOUT*/
+.wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.pass-container {
+    width: 100%;
+    background-color: white;
+    text-align: center;
+}

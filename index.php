@@ -26,20 +26,31 @@ function generate_password($max_char) //funzione che genera la nuova password
 </head>
 
 <body>
-    <div class="container d-flex flex-column align-items-center">
-        <h1 class="text-center">Strong Password Generator</h1>
-        <form action="index.php" method="get" class="my-3">
-            <label for="password-length">Lunghezza password: </label>
-            <input type="text" id="password-length" name="password_length">
-            <button type="submit" class="btn btn-primary">Invio</button>
-        </form>
-        <?php if (isset($pass_length)) { ?>
-            <?php if (!(empty($pass_length)) && $pass_length === 0) { ?>
-                <p>La password generata è: <?php echo generate_password($pass_length) ?></p>
-            <?php } else { ?>
-                <p>INSERIRE UN DATO NUMERICO PARI O SUPERIORE A UNO</p>
-            <?php } ?>
-        <?php } ?>
+    <div class="wrapper d-flex justify-content-center align-items-center">
+        <div class="container d-flex flex-column align-items-center">
+            <h1 class="text-center">Strong Password Generator</h1>
+            <h2>Genera una password sicura</h2>
+            <div class="pass-container">
+                <form action="index.php" method="get" class="my-3">
+                    <label for="password-length">Lunghezza password: </label>
+                    <input type="text" id="password-length" name="password_length">
+                    <button type="submit" class="btn btn-primary">Invio</button>
+                </form>
+                <?php if (isset($pass_length)) { ?>
+                    <?php if (!(empty($pass_length)) && $pass_length > 0) { ?>
+                        <div class="alert alert-success" role="alert">
+                            La password generata è: <?php echo generate_password($pass_length) ?>
+                        </div>
+
+                    <?php } else { ?>
+                        <div class="alert alert-danger" role="alert">
+                            INSERIRE UN DATO NUMERICO PARI O SUPERIORE A UNO
+                        </div>
+
+                    <?php } ?>
+                <?php } ?>
+            </div>
+        </div>
     </div>
 </body>
 
